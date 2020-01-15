@@ -1,14 +1,15 @@
 pipeline {
   environment {
     // registry = ${docker_registry_name}/${app_name}
-    registryCredential = "9b9c07c5-860c-444c-9b70-e86db78cf28a"
+    withCredentials([string(credentialsId: 'github-token', variable: 'githubToken')]);
+    gitCredentails = ${github-token}
     app = ''
   }
   agent { label 'slave_01' }
   stages {
     stage('Cloning Git') {
       steps {
-        sh 'echo helloworld'
+        sh 'echo ${gitCredentails}'
         // git(
         //    url: 'git@github.com:digitalventures/lbc.git',
         //    branch: branch,
