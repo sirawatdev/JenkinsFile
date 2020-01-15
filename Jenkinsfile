@@ -4,7 +4,7 @@ pipeline {
     registryCredential = "9b9c07c5-860c-444c-9b70-e86db78cf28a"
     app = ''
   }
-  agent { label 'jenkins-slave-01' }
+  agent { label 'slave-01' }
   stages {
     stage('Cloning Git') {
       steps {
