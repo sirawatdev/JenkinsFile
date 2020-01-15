@@ -2,7 +2,7 @@ pipeline {
   environment {
     // registry = ${docker_registry_name}/${app_name}
     withCredentials([string(credentialsId: 'github-token', variable: 'githubToken')]);
-    gitCredentails = ${github-token}
+    gitCredentails = "${github-token}"
     app = ''
   }
   agent { label 'slave_01' }
